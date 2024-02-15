@@ -1,0 +1,50 @@
+{
+  "name": "03-api-solid-challenge",
+  "version": "1.0.0",
+  "description": "FindAFriend API",
+  "engines": {
+    "node": "20.10.0"
+  },
+  "scripts": {
+    "start:dev": "tsx watch src/server.ts",
+    "start": "node build/server.js",
+    "test:create-prisma-environment": "npm link ./prisma/vitest-environment-prisma",
+    "test:install-prisma-environment": "npm link vitest-environment-prisma",
+    "build": "tsup src --out-dir build",
+    "test": "vitest run --dir src/use-cases",
+    "test:watch": "vitest --dir src/use-cases",
+    "pretest:e2e": "run-s test:create-prisma-environment test:install-prisma-environment",
+    "test:e2e": "vitest run --dir src/http",
+    "test:e2e:watch": "vitest --dir src/http",
+    "test:coverage": "vitest run --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/cookie": "9.2.0",
+    "@fastify/jwt": "7.2.4",
+    "@prisma/client": "5.7.1",
+    "bcryptjs": "2.4.3",
+    "dayjs": "1.11.10",
+    "dotenv": "16.3.1",
+    "fastify": "4.25.1",
+    "zod": "3.22.4"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "8.3.1",
+    "@rocketseat/eslint-config": "2.1.0",
+    "@types/bcryptjs": "2.4.6",
+    "@types/node": "20.10.5",
+    "@types/supertest": "2.0.16",
+    "eslint": "8.56.0",
+    "npm-run-all": "4.1.5",
+    "prisma": "5.7.1",
+    "supertest": "6.3.3",
+    "tsup": "8.0.1",
+    "tsx": "4.7.0",
+    "typescript": "5.3.3",
+    "vite-tsconfig-paths": "4.2.2",
+    "vitest": "1.1.0"
+  }
+}

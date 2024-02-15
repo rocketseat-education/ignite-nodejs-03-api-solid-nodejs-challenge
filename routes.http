@@ -1,0 +1,45 @@
+@authToken = {{authenticate.response.body.token}}
+
+POST http://localhost:3333/orgs
+content-type: application/json
+
+{
+  "name": "sample",
+  "author_name": "sample",
+  "email": "teste@gmail.com",
+  "whatsapp": "123456789",
+  "password": "123456",
+  "cep": "123456789",
+  "state": "sample",
+  "city": "sample",
+  "neighborhood": "sample",
+  "street": "sample",
+  "latitude": 123456789,
+  "longitude": 123456789
+}
+
+###
+
+# @name authenticate
+POST http://localhost:3333/orgs/authenticate
+content-type: application/json
+
+{
+  "email": "teste@gmail.com",
+  "password": "123456"
+}
+
+###
+POST http://localhost:3333/orgs/pets
+content-type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "name": "sample",
+  "about": "sample",
+  "age": "sample",
+  "size": "sample",
+  "energy_level": "sample",
+  "environment": "sample"
+}
+
